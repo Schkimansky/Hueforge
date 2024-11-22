@@ -59,7 +59,6 @@ class Convertor(Detection):
     def hex_to_rgba(hex: str) -> tuple[int, int, int, int]:  # noqa
         hexa = hex + 'FF'
         hexa = hexa.removeprefix('#')
-
         rgba: tuple[int, int, int, int] = tuple(int(hexa[i:i + 2], 16) for i in (0, 2, 4, 6))  # noqa
 
         return rgba
@@ -83,7 +82,7 @@ class Convertor(Detection):
 
     @staticmethod
     def rgb_to_rgba(rgb: tuple[int, int, int]) -> tuple[int, int, int, int]:
-        return rgb + (255, )
+        return rgb[0], rgb[1], rgb[2], 255
 
     @staticmethod
     def rgba_to_rgb(rgba: tuple[int, int, int, int]) -> tuple[int, int, int]:
