@@ -26,7 +26,8 @@ def increase_saturation(rgba, percentage: int | float):
 
     return f(r), f(g), f(b), patch(a)
 
-def increase_hue(rgba: tuple[int, int, int, int], percentage: int | float) -> tuple[int, int, int, int]:
+
+def increase_hue(rgba, percentage: int | float):
     factor = percentage_to_factor(percentage) * 360
     r, g, b, a = rgba
 

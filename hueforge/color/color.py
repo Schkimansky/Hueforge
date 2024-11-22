@@ -1,6 +1,6 @@
 from typing import Union, Literal
 from hueforge.color.convertor import Convertor
-from hueforge.manipulation.manipulation import increase_contrast, increase_brightness, increase_saturation, increase_hue
+from hueforge.algorithms.propertycontrol import increase_contrast, increase_brightness, increase_saturation, increase_hue
 
 
 channels_to_index: dict[str, int] = {'r': 0, 'g': 1, 'b': 2, 'a': 3}
@@ -94,8 +94,9 @@ class Color:
 
         return Color(rgba)
 
+
 if __name__ == '__main__':
-    # Testing with GUI, Don't look at the code. It was prototyped in 15 minutes.
+    # I warn you, Don't look below this.
     import trilent as t
 
     alignments = ['start', 'center', 'end']
