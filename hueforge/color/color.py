@@ -1,6 +1,6 @@
 from typing import Union  # Literal not needed as it's imported by "*" the line below this line.
 from hueforge.algorithms.colorblindness import *
-from hueforge.algorithms.other import gradient
+from hueforge.algorithms.other import gradient, temperature, invert, blend
 from hueforge.color.convertor import Convertor
 from hueforge.algorithms.property_adjustment import increase_contrast, increase_brightness, increase_saturation, increase_hue
 
@@ -136,3 +136,12 @@ class Color:
 
     def _convert(self, to_type: Literal['hex', 'hexa', 'rgb', 'rgba', 'direct']) -> Union[str, tuple[int, int, int], tuple[int, int, int, int]]:
         return self.convertor.convert(self.value, 'rgba', to_type)
+
+    def blend(self, other_color, delta: float = 50.0):
+        return Color(blend(self.rgba(), other_color.rgba(), delta))
+
+    def invert(self):
+        return Color(invert(self.rgba()))
+
+    def temperature(self, temp: float, warm_color=(255, 67, 0), cool_color=(181, 205, 255)):
+        return Color(temperature(self.rgba(), temp, warm_color, cool_color))
