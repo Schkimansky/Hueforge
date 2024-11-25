@@ -64,10 +64,31 @@ Generate a smooth color gradient starting from one color, Ending with the other:
 ```python
 from hueforge import Color
 
-example_color = Color("#FF0000")
-colorblindness = "protanopia"  # Type of colorblindness. Possible values: deuteranopia, deuteranomaly, protanopia, protanomaly, tritanopia, tritanomaly, all, d, t, p, d1, t1, p1, d2, t2, p2, a (all)
+starting_color = Color("#FF0000")
+ending_color = Color("#0000FF")
 
-print(f"A colorblind person would see this as: {example_color.simulate_colorblindness(colorblindness)}")
-print(f"Adjusted color so the colorblind person can see the color properly: {example_color.help_colorblindness(colorblindness)}")
+gradient = starting_color.gradient(ending_color, steps=3)
+print(gradient)  # Outputs: [Color(#FF0000), Color(#7F007F), Color(#0000FF)]
+
+# Increase steps for a higher quality gradient, It's recommended to keep it under 255.
+# By higher quality, I mean that there are more unique colors leading to a smoother gradient. For example, a 2 step gradient would just be [starting_color, end_color]. Such a gradient is useless because of the low quality. 
+high_quality_gradient = starting_color.gradient(ending_color, steps=5)
+print(high_quality_gradient)  # Outputs: [Color(#FF0000), Color(#BF003F), Color(#7F007F), Color(#3F00BF), Color(#0000FF)]
 ```
 
+Color Harmonies:
+```python
+from hueforge import Color
+
+example_color = Color("#FF0000")
+print(example_color.get_complementary_color())
+print(example_color.get_split_complementary_colors())
+print(example_color.get_analogous_colors())
+print(example_color.get_triadic_colors())
+print(example_color.get_tetradic_colors())
+print(example_color.get_square_colors())
+
+# Hover over these functions (in an IDE) to see their return order.
+```
+
+That's almost everything that's included in this library. Thanks for using HueForge!

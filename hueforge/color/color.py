@@ -130,9 +130,9 @@ class Color:
         return Color(rgba)
 
     # Other
-    def gradient(self, to) -> list:
+    def gradient(self, to, steps: int = 5) -> list:
         """ Returns a list of some colors that form a smooth gradient from 1 color to the other """
-        return [Color(rgba, 'rgba') for rgba in gradient(self.rgba(), to.rgba())]
+        return [Color(rgba, 'rgba') for rgba in gradient(self.rgba(), to.rgba(), steps)]
 
     def _convert(self, to_type: Literal['hex', 'hexa', 'rgb', 'rgba', 'direct']) -> Union[str, tuple[int, int, int], tuple[int, int, int, int]]:
         return self.convertor.convert(self.value, 'rgba', to_type)
