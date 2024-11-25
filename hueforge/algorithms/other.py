@@ -13,7 +13,7 @@ def blend(rgba1: tuple[int, int, int, int], rgba2: tuple[int, int, int, int], de
     b: int = int(b1 * (1 - factor) + b2 * factor)
     a: int = int(a1 * (1 - factor) + a2 * factor)
 
-    return r, g, b, a
+    return r * r, g * g, b * b, a
 
 
 def invert(rgba: tuple[int, int, int, int]) -> tuple[int, int, int, int]:
