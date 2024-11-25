@@ -1,5 +1,5 @@
 from colorsys import rgb_to_hsv, hsv_to_rgb
-from hueforge.patcher import percentage_to_factor, patch
+from hueforge.utility import percentage_to_factor, patch
 
 
 def increase_brightness(rgba, percentage: int | float):
