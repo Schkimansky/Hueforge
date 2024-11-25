@@ -1,3 +1,5 @@
+from reportlab.platypus.tableofcontents import delta
+
 # HueForge
 ## A python library to handle everything color related.
 
@@ -89,6 +91,34 @@ print(example_color.get_tetradic_colors())
 print(example_color.get_square_colors())
 
 # Hover over these functions (in an IDE) to see their return order.
+```
+
+Blending colors
+```python
+from hueforge import Color
+
+color1 = Color("#FF0000")
+color2 = Color("#FFFF00")
+print(color1.blend(color2))  # Gives a 50/50 mix of color1 and color2
+print(color1.blend(color2, delta=0))  # Gives color1
+print(color1.blend(color2, delta=70))  # Gives a 70/30 mix of color1 and color2
+print(color1.blend(color2, delta=100))  # Gives color2
+```
+
+Inverting colors
+```python
+from hueforge import Color
+
+example_color = Color("#FF0000")
+print(example_color.invert())
+```
+
+Temperature control
+```python
+from hueforge import Color
+
+example_color = Color("#FF0000")
+print(example_color.temperature(100))  # 100 = extremely hot temperature, 0 = extremely cold temperature
 ```
 
 That's almost everything that's included in this library. Thanks for using HueForge!
