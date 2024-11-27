@@ -1,5 +1,3 @@
-from reportlab.platypus.tableofcontents import delta
-
 # HueForge
 ## A python library to handle everything color related.
 
