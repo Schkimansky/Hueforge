@@ -7,7 +7,7 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     readme = "\n" + fh.read()
 
-VERSION = '1.15'  # Increment on next change
+VERSION = '1.2'  # Increment on next change
 DESCRIPTION = 'Python color engine.'
 
 setup(
@@ -19,6 +19,7 @@ setup(
     long_description_content_type="text/markdown",
     long_description=readme,
     packages=find_packages(),
+    include_package_data=True,
     install_requires=[],
     keywords=["python", "color", "engine", "colorengine", "hue", "contrast", "saturation", "hueforge", "manager"],
     classifiers=[
