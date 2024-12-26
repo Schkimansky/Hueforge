@@ -15,4 +15,4 @@ class Detection:
         elif isinstance(value, str) and value.replace(' ', '').lower().isidentifier():
             return 'direct'
 
-        raise ValueError(f'Invalid value with unknown format: {value}. Possible formats: {['hex', 'hexa', 'rgb', 'rgba', 'direct']}')  # noqa
+        raise ValueError(f'Invalid value with unknown format: {value}. Possible formats: {["hex", "hexa", "rgb", "rgba", "direct"]}')  # noqa
